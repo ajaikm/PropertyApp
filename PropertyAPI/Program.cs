@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+//Configuring Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -18,8 +18,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactAppOrigin", builder =>
     {
         builder.WithOrigins("http://localhost:3000") // React app running on port 3000
-               .AllowAnyMethod() // Allows GET, POST, PUT, DELETE, etc.  Be specific if possible.
-               .AllowAnyHeader(); // Allows any header. Be specific if possible.
+               .AllowAnyMethod() 
+               .AllowAnyHeader();
     });
 });
 
@@ -40,4 +40,4 @@ app.UseCors("AllowReactAppOrigin");
 
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();

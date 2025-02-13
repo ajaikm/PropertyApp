@@ -11,6 +11,6 @@ export const getProperties = async () => {
     } catch (error)
     {
         console.error("Error fetching properties:", error);
-        throw error; // Let the component handle errors
+        throw error;
     }
 };
